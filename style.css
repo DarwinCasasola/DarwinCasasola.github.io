@@ -8,7 +8,9 @@
 /* Body and Font Settings */
 img {
     max-width: 50%;
-    height: 50%;
+    height: auto%;
+    display: block;
+    margin: 0 auto;
 }
 body {
     font-family: Arial, sans-serif;
