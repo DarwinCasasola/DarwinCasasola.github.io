@@ -1,74 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darwin Casasola </title>
-    <link rel="stylesheet" href="style.css">
-    <script src="functions.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Darwin Casasola — Portfolio</title>
+  <meta name="description" content="Projects, skills, and contact for Darwin Casasola." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="functions.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="hero">
-        <div class="hero-content">
-            <img src="/image/website.jpg" alt="Darwin Casasola">
-            <h1>My Name is Darwin Casasola</h1>
-            <p>This is my personal display of becoming a Web Developer and reaching all my tech goals</p>
-        </div>
-    </section>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>My name is Darwin Otoniel Casasola Cifuentes. I have been a self-taught developer for the past few months. In that time I have created a few projects and many more that are still in progress. I am 26 years old and from Las Vegas.</p>
-    </section>
-
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-list"
-            <div class="project-item">
-                <h3>Project 1</h3>
-                <p>This is a Roll the Dice game. For those nights you wish to bet odds or even play Monopoly but someone lost the dice. This is a simple game that allows you to roll the dice and get a random number between 1 and 6 or 1 and 10. <a href="https://darwinsdicegame.netlify.app/" target="_blank">Check it out here!</a> </p>   
-            </div>
-        </div>
-    </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/mwplbzne" method="post">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="Your Email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Darwin Otoniel Casasola Cifuentes. All rights reserved.</p>
-        <ul>
-            <li><a href="https://github.com/DarwinCasasola" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/darwin-casasola-cifuentes-3b1151348/" target="_blank">LinkedIn</a></li>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#hero" aria-label="Go to top">
+        <span class="brand-dot"></span> Darwin Casasola
+      </a>
+      <nav aria-label="Primary">
+        <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌓</button>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-    </footer>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero section">
+      <div class="container grid-2">
+        <div class="hero-copy reveal">
+          <h1 class="xl">Hi, I’m <span class="gradient-text">Darwin Casasola</span></h1>
+          <p class="lead">Web developer focused on clean, accessible experiences. I like tasteful animations, practical UX, and shipping projects.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-media reveal delay-1">
+          <img class="avatar" src="website.jpg" alt="Portrait of Darwin Casasola">
+        </div>
+      </div>
+    </section>
 
-</body>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container narrow">
+        <h2 class="h2 center reveal">About</h2>
+        <p class="reveal delay-1">
+          I’m a Las Vegas–based developer who enjoys turning ideas into working products.
+          I’ve built small apps, games, and APIs while learning modern web tooling.
+          When I’m not coding, you’ll find me watching soccer or exploring coffee spots.
+        </p>
+      </div>
+    </section>
 
+    <!-- PROJECTS -->
+    <section id="projects" class="section alt">
+      <div class="container">
+        <h2 class="h2 center reveal">Projects</h2>
+        <div id="projectGrid" class="grid projects"><!-- injected by JS --></div>
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container narrow">
+        <h2 class="h2 center reveal">Contact</h2>
+        <!-- Uses your Formspree endpoint from earlier; change if needed -->
+        <form id="contactForm" class="reveal delay-1" action="https://formspree.io/f/mwplbzne" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
 
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
 
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What can I help with?" required></textarea>
 
+          <input type="hidden" name="_subject" value="New portfolio message" />
+          <button class="btn primary" type="submit">Send</button>
+          <p id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-
-
-
-
-</html>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Darwin Casasola. All rights reserved.</p>
+      <ul class="social">
+        <li><a href="https://github.com/DarwinCasasola" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/darwin-casasola-cifuentes-3b1151348/" target="_blank" r_
